@@ -12,63 +12,75 @@
 		<!-- Container -->
 		<div
 			id="app"
-			class="w-[80%] sm:w-96 md:w-[450px] flex flex-col items-center justify-between py-10"
+			class="w-[87vw] flex flex-col items-center justify-between py-10 h-full"
 		>
 			<!-- Success message -->
 			<div
 				id="successMessage"
-				class="hidden flex-col items-center justify-center text-center space-y-4"
+				class="grid place-items-center text-center space-y-4 h-full w-full hidden"
 			>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 24 24"
-					fill="currentColor"
-					class="w-[170px]"
+				<div
+					class="flex flex-col items-center justify-center text-center space-y-8 w-full"
 				>
-					<path
-						fill-rule="evenodd"
-						d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-						clip-rule="evenodd"
-					/>
-				</svg>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						fill="currentColor"
+						class="w-[170px]"
+					>
+						<path
+							fill-rule="evenodd"
+							d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
+							clip-rule="evenodd"
+						/>
+					</svg>
 
-				<p class="text-xl font-semibold">Message sent successfully!</p>
-				<button
-					onclick="window.location.href='index.html'"
-					class="bg-black p-4 rounded-full text-white font-semibold w-full"
-				>
-					Send another
-				</button>
+					<p class="text-2xl font-semibold">Message sent successfully!</p>
+					<button
+						onclick="window.location.href='index.html'"
+						class="bg-black p-8 text-2xl rounded-full text-white font-semibold w-full"
+					>
+						Send another
+					</button>
+				</div>
 			</div>
 
 			<!-- Step 1: Instagram Username -->
-			<div id="step1" class="flex flex-col items-center w-full gap-4">
+			<div
+				id="step1"
+				class="flex flex-col items-center w-full gap-[50px] h-full justify-center"
+			>
 				<div
 					class="bg-opacity-40 bg-white rounded-[35px] w-full mb-4 shadow-lg text-black"
 				>
-					<div class="bg-white p-6 rounded-[35px]">
-						<h2 class="text-lg font-bold text-center mb-2">
+					<div
+						class="bg-white p-6 py-[6rem] rounded-[35px] flex flex-col items-center gap-7"
+					>
+						<h2 class="text-4xl font-bold text-center mb-2">
 							What's your Instagram ID?
 						</h2>
 						<input
 							id="instaIdInput"
 							type="text"
 							placeholder="@your_username"
-							class="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500"
+							class="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 text-4xl"
 						/>
 					</div>
 				</div>
 
 				<button
 					id="nextButton"
-					class="shadow-lg animate-bounce bg-black text-white font-bold p-4 rounded-full text-lg mb-6 w-full"
+					class="shadow-lg text-4xl animate-bounce bg-black text-white font-bold p-8 rounded-full mb-6 w-full"
 				>
 					Send!
 				</button>
 			</div>
 
 			<!-- Step 2: Message Form -->
-			<div id="step2" class="hidden flex-col items-center w-full">
+			<div
+				id="step2"
+				class="hidden flex-col items-center w-full h-full justify-between py-[15rem]"
+			>
 				<div
 					class="bg-opacity-40 bg-white rounded-[35px] w-80 mb-4 shadow-lg w-full"
 				>
@@ -77,11 +89,11 @@
 					>
 						<img
 							src="./487396330_1142496597672438_8422859713372662250_n.jpg"
-							class="w-10 h-10 bg-gray-300 rounded-full"
+							class="w-[5rem] h-[5rem] bg-gray-300 rounded-full"
 						/>
 						<div>
-							<p class="text-sm font-semibold text-black">@islam_muaz</p>
-							<p class="text-xs text-black font-semibold">
+							<p class="text-4xl font-semibold text-black">@islam_muaz</p>
+							<p class="text-2xl text-black font-semibold">
 								send me anonymous messages!
 							</p>
 						</div>
@@ -90,7 +102,7 @@
 					<form
 						action="https://formsubmit.co/d306e3448dbcc9e537e5d7a3869605cc"
 						method="POST"
-						class="p-4 flex flex-col gap-4"
+						class="p-4 flex flex-col gap-10"
 					>
 						<input type="hidden" name="_captcha" value="false" />
 						<input type="hidden" name="_honey" style="display: none" />
@@ -110,12 +122,12 @@
 							name="Message"
 							placeholder="send me anonymous messages..."
 							required
-							class="w-full p-3 text-white bg-transparent bg-opacity-20 focus:outline-none resize-none h-[140px] placeholder-[#9E4254] text-lg"
+							class="w-full p-3 text-white bg-transparent bg-opacity-20 focus:outline-none resize-none h-[140px] placeholder-[#9E4254] text-4xl"
 						></textarea>
 
 						<button
 							type="submit"
-							class="shadow-lg animate-bounce bg-black text-white font-bold p-4 rounded-full text-lg w-full"
+							class="shadow-lg animate-bounce bg-black text-white font-bold p-8 rounded-full text-4xl w-full"
 						>
 							Send!
 						</button>
@@ -125,14 +137,14 @@
 				<!-- Tap Count & Footer -->
 				<div class="flex flex-col gap-3 items-center w-full">
 					<div class="flex flex-col items-center gap-2 w-full">
-						<p class="text-sm mb-2">👇 229 people just tapped the button 👇</p>
+						<p class="text-2xl mb-2">👇 229 people just tapped the button 👇</p>
 						<button
-							class="shadow-lg bg-black text-white font-bold py-4 rounded-full text-base mb-10 w-full"
+							class="shadow-lg bg-black text-white font-bold p-8 text-4xl rounded-full mb-10 w-full"
 						>
 							Get your own messages!
 						</button>
 					</div>
-					<div class="flex space-x-4 text-xs opacity-75">
+					<div class="flex space-x-4 text-xl opacity-75">
 						<a href="#" class="underline">Terms</a>
 						<a href="#" class="underline">Privacy</a>
 					</div>
