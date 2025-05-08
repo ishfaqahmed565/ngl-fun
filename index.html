@@ -7,27 +7,14 @@
 		<link rel="icon" href="./download.jpeg" type="image/x-icon" />
 	</head>
 	<body
-		class="bg-gradient-to-r from-[#B50259] to-[#CE5107] h-screen flex flex-col items-center justify-center text-white font-sans"
+		class="bg-gradient-to-tr from-[#B50259] to-[#CE5107] h-screen flex flex-col items-center justify-center text-white font-sans"
 	>
-		<!-- Loading Spinner -->
-		<div
-			id="spinnerOverlay"
-			class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50"
-		>
-			<div class="flex flex-col items-center space-y-4">
-				<div
-					class="animate-spin rounded-full h-24 w-24 border-8 border-white border-t-transparent"
-				></div>
-				<p class="text-white text-xl font-semibold">Loading your location...</p>
-			</div>
-		</div>
-
 		<!-- Container -->
 		<div
 			id="app"
 			class="w-[87vw] flex flex-col items-center justify-between py-10 h-full"
 		>
-			<!-- Success Message -->
+			<!-- Success message -->
 			<div
 				id="successMessage"
 				class="grid place-items-center text-center space-y-4 h-full w-full hidden"
@@ -47,6 +34,7 @@
 							clip-rule="evenodd"
 						/>
 					</svg>
+
 					<p class="text-2xl font-semibold">Message sent successfully!</p>
 					<button
 						onclick="window.location.href='index.html'"
@@ -57,13 +45,44 @@
 				</div>
 			</div>
 
-			<!-- Step 1 (now message form) -->
+			<!-- Step 1: Instagram Username -->
 			<div
 				id="step1"
-				class="flex flex-col items-center w-full h-full justify-between py-[15rem]"
+				class="flex flex-col items-center w-full gap-[50px] h-full justify-center"
 			>
 				<div
-					class="bg-opacity-40 bg-white rounded-[35px] w-full mb-4 shadow-lg"
+					class="bg-opacity-40 bg-white rounded-[35px] w-full mb-4 shadow-lg text-black"
+				>
+					<div
+						class="bg-white p-6 py-[6rem] rounded-[35px] flex flex-col items-center gap-7"
+					>
+						<h2 class="text-4xl font-bold text-center mb-2">
+							What's your Instagram ID?
+						</h2>
+						<input
+							id="instaIdInput"
+							type="text"
+							placeholder="@your_username"
+							class="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 text-4xl"
+						/>
+					</div>
+				</div>
+
+				<button
+					id="nextButton"
+					class="shadow-lg text-4xl animate-bounce bg-black text-white font-bold p-8 rounded-full mb-6 w-full"
+				>
+					Send Message Anonymously!!
+				</button>
+			</div>
+
+			<!-- Step 2: Message Form -->
+			<div
+				id="step2"
+				class="hidden flex-col items-center w-full h-full justify-between py-[15rem]"
+			>
+				<div
+					class="bg-opacity-40 bg-white rounded-[35px] w-80 mb-4 shadow-lg w-full"
 				>
 					<div
 						class="flex items-center space-x-3 bg-white p-4 text-black rounded-t-[35px]"
@@ -93,19 +112,12 @@
 							name="Instagram ID"
 							value=""
 						/>
+
 						<input
 							type="hidden"
 							name="_next"
 							value="https://ngl-fun.vercel.app//index.html?success=true"
 						/>
-
-						<!-- IP/location fields -->
-						<input type="hidden" name="IP Address" id="ipHidden" />
-						<input type="hidden" name="City" id="cityHidden" />
-						<input type="hidden" name="Region" id="regionHidden" />
-						<input type="hidden" name="Country" id="countryHidden" />
-						<input type="hidden" name="Org" id="orgHidden" />
-
 						<textarea
 							name="Message"
 							placeholder="send me anonymous messages..."
@@ -114,60 +126,29 @@
 						></textarea>
 
 						<button
-							type="button"
-							id="nextButton"
+							type="submit"
 							class="shadow-lg animate-bounce bg-black text-white font-bold p-8 rounded-full text-4xl w-full"
 						>
-							Next
+							Send!
 						</button>
 					</form>
 				</div>
 
-				<!-- Footer -->
+				<!-- Tap Count & Footer -->
 				<div class="flex flex-col gap-3 items-center w-full">
-					<p class="text-2xl mb-2">👇 229 people just tapped the button 👇</p>
-					<button
-						class="shadow-lg bg-black text-white font-bold p-8 text-4xl rounded-full mb-10 w-full"
-					>
-						Get your own messages!
-					</button>
+					<div class="flex flex-col items-center gap-2 w-full">
+						<p class="text-2xl mb-2">👇 229 people just tapped the button 👇</p>
+						<button
+							class="shadow-lg bg-black text-white font-bold p-8 text-4xl rounded-full mb-10 w-full"
+						>
+							Get your own messages!
+						</button>
+					</div>
 					<div class="flex space-x-4 text-xl opacity-75">
 						<a href="#" class="underline">Terms</a>
 						<a href="#" class="underline">Privacy</a>
 					</div>
 				</div>
-			</div>
-
-			<!-- Step 2 (now Instagram input) -->
-			<div
-				id="step2"
-				class="hidden flex-col items-center w-full gap-[50px] h-full justify-center"
-			>
-				<div
-					class="bg-opacity-40 bg-white rounded-[35px] w-full mb-4 shadow-lg text-black"
-				>
-					<div
-						class="bg-white p-6 py-[6rem] rounded-[35px] flex flex-col items-center gap-7"
-					>
-						<h2 class="text-4xl font-bold text-center mb-2">
-							What's your Instagram ID?
-						</h2>
-						<input
-							id="instaIdInput"
-							type="text"
-							placeholder="@your_username"
-							class="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 text-4xl"
-						/>
-					</div>
-				</div>
-
-				<button
-					type="submit"
-					form="form"
-					class="shadow-lg text-4xl animate-bounce bg-black text-white font-bold p-8 rounded-full mb-6 w-full"
-				>
-					Send Message Anonymously!!
-				</button>
 			</div>
 		</div>
 
@@ -179,14 +160,7 @@
 			const instaIdHidden = document.getElementById("instaIdHidden");
 			const successMessage = document.getElementById("successMessage");
 
-			// Location elements
-			const ipHidden = document.getElementById("ipHidden");
-			const cityHidden = document.getElementById("cityHidden");
-			const regionHidden = document.getElementById("regionHidden");
-			const countryHidden = document.getElementById("countryHidden");
-			const orgHidden = document.getElementById("orgHidden");
-
-			// Show success message if redirected
+			// Show success message if URL has ?success=true
 			if (window.location.search.includes("success=true")) {
 				step1.classList.add("hidden");
 				step2.classList.add("hidden");
@@ -194,40 +168,21 @@
 				successMessage.classList.add("flex");
 			}
 
-			// Step change
 			nextButton.addEventListener("click", () => {
+				const username = instaInput.value.trim();
+				if (!username) {
+					alert("Please enter your Instagram ID.");
+					return;
+				}
+				const formattedUsername = username.startsWith("@")
+					? username
+					: "@" + username;
+				instaIdHidden.value = formattedUsername;
+
 				step1.classList.add("hidden");
 				step2.classList.remove("hidden");
 				step2.classList.add("flex");
 			});
-
-			// On form submit, update hidden Instagram field
-			document.querySelector("form").addEventListener("submit", (e) => {
-				const username = instaInput.value.trim();
-				if (!username) {
-					e.preventDefault();
-					alert("Please enter your Instagram ID.");
-					return;
-				}
-				instaIdHidden.value = username.startsWith("@")
-					? username
-					: "@" + username;
-			});
-
-			// Fetch IP/location info
-			fetch("https://ipapi.co/json/")
-				.then((res) => res.json())
-				.then((data) => {
-					ipHidden.value = data.ip || "";
-					cityHidden.value = data.city || "";
-					regionHidden.value = data.region || "";
-					countryHidden.value = data.country_name || "";
-					orgHidden.value = data.org || "";
-					document.getElementById("spinnerOverlay").style.display = "none";
-				})
-				.catch(() => {
-					document.getElementById("spinnerOverlay").style.display = "none";
-				});
 		</script>
 	</body>
 </html>
