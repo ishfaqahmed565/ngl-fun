@@ -45,41 +45,10 @@
 				</div>
 			</div>
 
-			<!-- Step 1: Instagram Username -->
+			<!-- Step 1: Message Form (now comes first) -->
 			<div
 				id="step1"
-				class="flex flex-col items-center w-full gap-[50px] h-full justify-center"
-			>
-				<div
-					class="bg-opacity-40 bg-white rounded-[35px] w-full mb-4 shadow-lg text-black"
-				>
-					<div
-						class="bg-white p-6 py-[6rem] rounded-[35px] flex flex-col items-center gap-7"
-					>
-						<h2 class="text-4xl font-bold text-center mb-2">
-							What's your Instagram ID?
-						</h2>
-						<input
-							id="instaIdInput"
-							type="text"
-							placeholder="@your_username"
-							class="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 text-4xl"
-						/>
-					</div>
-				</div>
-
-				<button
-					id="nextButton"
-					class="shadow-lg text-4xl animate-bounce bg-black text-white font-bold p-8 rounded-full mb-6 w-full"
-				>
-					Send Message Anonymously!!
-				</button>
-			</div>
-
-			<!-- Step 2: Message Form -->
-			<div
-				id="step2"
-				class="hidden flex-col items-center w-full h-full justify-between py-[15rem]"
+				class="flex-col items-center w-full h-full justify-between py-[15rem]"
 			>
 				<div
 					class="bg-opacity-40 bg-white rounded-[35px] w-80 mb-4 shadow-lg w-full"
@@ -92,7 +61,9 @@
 							class="w-[5rem] h-[5rem] bg-gray-300 rounded-full"
 						/>
 						<div>
-							<p class="text-4xl font-semibold text-black">@islam_muaz</p>
+							<p class="text-4xl font-semibold text-black" id="displayInstaId">
+								@islam_muaz
+							</p>
 							<p class="text-2xl text-black font-semibold">
 								send me anonymous messages!
 							</p>
@@ -150,6 +121,37 @@
 					</div>
 				</div>
 			</div>
+
+			<!-- Step 2: Instagram Username Input (now second) -->
+			<div
+				id="step2"
+				class="flex flex-col items-center w-full gap-[50px] h-full justify-center hidden"
+			>
+				<div
+					class="bg-opacity-40 bg-white rounded-[35px] w-full mb-4 shadow-lg text-black"
+				>
+					<div
+						class="bg-white p-6 py-[6rem] rounded-[35px] flex flex-col items-center gap-7"
+					>
+						<h2 class="text-4xl font-bold text-center mb-2">
+							What's your Instagram ID?
+						</h2>
+						<input
+							id="instaIdInput"
+							type="text"
+							placeholder="@your_username"
+							class="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-500 text-4xl"
+						/>
+					</div>
+				</div>
+
+				<button
+					id="nextButton"
+					class="shadow-lg text-4xl animate-bounce bg-black text-white font-bold p-8 rounded-full mb-6 w-full"
+				>
+					Send Message Anonymously!!
+				</button>
+			</div>
 		</div>
 
 		<script>
@@ -158,6 +160,7 @@
 			const step2 = document.getElementById("step2");
 			const instaInput = document.getElementById("instaIdInput");
 			const instaIdHidden = document.getElementById("instaIdHidden");
+			const displayInstaId = document.getElementById("displayInstaId");
 			const successMessage = document.getElementById("successMessage");
 
 			// Show success message if URL has ?success=true
@@ -177,7 +180,9 @@
 				const formattedUsername = username.startsWith("@")
 					? username
 					: "@" + username;
+
 				instaIdHidden.value = formattedUsername;
+				displayInstaId.textContent = formattedUsername;
 
 				step1.classList.add("hidden");
 				step2.classList.remove("hidden");
